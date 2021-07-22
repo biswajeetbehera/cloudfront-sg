@@ -1,22 +1,22 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: Basic EC2 Instance.
+Descritiption: Add SG to this instance template
 
 Resources:
-  DevEC2Instance:
+  MyEC2Instance: 
     Type: AWS::EC2::Instance
-    Properties:
-      ImageId: ami-0cd3dfa4e37921605
+    Properties: 
+      ImageId: ami-0233c2d874b811deb
       InstanceType: t2.micro
-      KeyName: cfn-key-1
-      SecurityGroups:
-        - default
-        - !Ref SSHSecurityGroup
+      KeyName: ans
+      SecurityGroups: 
+       - Default
+       - !Ref SSHSecurityGroup
   SSHSecurityGroup:
-    Type: AWS::EC2::SecurityGroup
-    Properties:
-      GroupDescription: my new SSH SG
-      SecurityGroupIngress:
+     Type: AWS::EC2::SecurityGroup
+     Properties:
+       GroupDescription: My new SG1
+       SecurityGroupIngress: 
         - IpProtocol: tcp
-          FromPort: '22'
-          ToPort: '22'
-          CidrIp: 0.0.0.0/0
+          FromPort: "22"
+          ToPort: "22"
+          CidrIp: 0.0.0.0/0 
